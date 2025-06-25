@@ -11,9 +11,9 @@ def test_healthz():
 
 def test_create_account():
     account = {
-        "name": "Alice",
-        "description": "Test Account",
-        "balance": 1000.0,
+        "name": "Ayush",
+        "description": "Test",
+        "balance": 100,
         "active": True
     }
     response = client.put("/accounts/1", json=account)
@@ -22,8 +22,8 @@ def test_create_account():
 def test_get_account():
     response = client.get("/accounts/1")
     assert response.status_code == 200
-    assert response.json()["name"] == "Alice"
+    assert response.json()["name"] == "Ayush"
 
 def test_delete_account_fail():
     response = client.delete("/accounts/2")
-    assert response.status_code == 422  # because `deleted` param is required
+    assert response.status_code == 422  
